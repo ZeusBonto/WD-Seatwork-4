@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+section.contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+
+    & > .image {
+        background-image: url(../img/texture-grey.png);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 50%;
+
+        & > img {
+            border-radius: 25px;
+            border: 5px rgba(0, 0, 0, 0.37) solid;
+            height: 50%;
+        }
+    }
+
+    & > .info {
+        background-image: url(../img/texture-blue.png);
+        filter: fli;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        width: 50%;
+        gap: 5vh;
+
+        & > h1 {
+            font-size: 80px;
+        }
+
+        & > h3 {
+            font-size: 50px;
+        }
+
+        & > p {
+            font-size: 20px;
+            width: 80%;
+            text-align: center;
+        }
+
+        & > .navigations {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 50%;
+
+            & > a {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 25%;
+                text-decoration: none;
+
+                & > button {
+                    font-family: 'Open Sans', sans-serif;
+                    border-radius: 10px;
+                    padding: 10px;
+                    font-size: 20px;
+                    font-weight: bolder;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        transform: scale(1.2);
+                        transition: all 0.3s ease;
+                    }
+
+                    &:active {
+                        transform: scale(1);
+                        transition: all 0.2s ease;
+                    }
+                }
+
+                & > button.lay1 {
+                    border: 3px black solid;
+                    background-image: linear-gradient(to right, rgb(63, 199, 63), rgb(129, 209, 129), rgb(98, 184, 98));
+
+                    &:hover {
+                        border: 3px rgb(255, 255, 255) solid;
+                        color: white;
+                        transition: all 0.3s ease;
+                    }
+                }
+
+                & > button.lay2 {
+                    border: 3px black solid;
+                    color: white;
+                    background-image: linear-gradient(to right, rgb(199, 63, 63), rgb(209, 129, 129), rgb(184, 98, 98));
+
+                    &:hover {
+                        border: 3px rgb(255, 255, 255) solid;
+                        transition: all 0.3s ease;
+                    }
+                }
+            }
+        }
+    }
+}
