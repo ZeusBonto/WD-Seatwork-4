@@ -4,11 +4,14 @@
 }
 
 body {
-    height: 100vh;
+    height: 100dvh;
     width: 100%;
-    background-image: linear-gradient(to top, rgb(106, 251, 251), rgb(183, 255, 255), rgb(223, 247, 253));
-    overflow: hidden;
     z-index: -3;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 header.header1 {
@@ -19,6 +22,7 @@ header.header1 {
     border-top: 3px rgb(177, 152, 122) solid;
     border-bottom: 6px rgb(110, 95, 76) solid;
     position: relative;
+    z-index: 10;
 
     & > nav.headernav {
         display: flex;
@@ -28,7 +32,7 @@ header.header1 {
 
         & > .social-medias {
             display: flex;
-            margin-left: 1vw;
+            margin-left: 1dvw;
 
             & > a {
                 & > img {
@@ -109,7 +113,7 @@ header.header1 {
             background-image: linear-gradient(to bottom right, rgb(214, 169, 134), rgb(175, 130, 96), rgb(175, 130, 96), rgb(131, 95, 68));
             padding: 5px;
             height: 25px;
-            margin-right: 1vw;
+            margin-right: 1dvw;
 
             &:hover {
                 background: rgb(105, 78, 57);
@@ -123,22 +127,126 @@ section.contents {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
+    width: 100dvw;
+    background-image: url(../img/top-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 
-section.backgrounds {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -2;
-
-    & > .grass {
-        position: relative;
+    & > .hanging-link {
         display: flex;
-        width: 130vw;
-        left: -20vw;
-        bottom: -60vh;
+        justify-content: center;
+        align-items: flex-end;
+        background-image: url(../img/hanging-sign.png);
+        background-position-x: 50%;
+        background-position-y: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        max-width: 300px;
+        max-height: 100px;
+        min-height: 100px;
+        width: 300px;
+        position: relative;
+        top: -20px;
+        z-index: 0;
+        transition: all 0.3s ease;
+
+        & > a {
+            font-family: 'Comic Neue', sans-serif;
+            padding: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+
+            &:hover {
+                color: red;
+            }
+        }
+
+        &:hover {
+            top: -5px;
+        }
+    }
+
+    & > .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100dvw;
+
+        & > img {
+            height: 40dvh;
+        }
+    }
+
+    & > .title {
+        font-style: italic;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100dvw;
+
+        & > h1 {
+            font-size: 40px;
+        }
+    }
+
+    & > .quotes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        margin-top: 1dvh;
+        width: 100dvw;
+        gap: 10vw;
+
+        & > p {
+            font-size: 20px;
+        }
+    }
+
+    & > .buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        margin-top: 3dvh;
+        width: 40dvw;
+        gap: 5vw;
+
+        & > a {
+            & > button {
+                border: 3px black solid;
+                border-radius: 25px;
+                padding: 20px;
+                font-size: 25px;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.1);
+                    border: 3px white dashed;
+                    color: white;
+                }
+            }
+
+            & > .b1 {
+                background-image: linear-gradient(to bottom right, rgb(163, 255, 163), rgb(124, 248, 124), rgb(88, 206, 88), rgb(66, 172, 66));
+            }
+
+            & > .b2 {
+                background-image: linear-gradient(to bottom right, rgb(253, 156, 156), rgb(248, 96, 96), red, rgb(173, 1, 1));
+            }
+        }
+    }
+
+    & > img {
+        display: flex;
+        position: relative;
+        width: 100%;
+        bottom: -40px;
     }
 }
+
+
 
 @keyframes sway {
     0% { transform: rotate(0deg); }
@@ -149,6 +257,5 @@ section.backgrounds {
 }
 
 .logo {
-    display: inline-block;
     animation: sway 5s infinite ease;
 }
