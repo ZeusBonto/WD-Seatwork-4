@@ -21,7 +21,7 @@ header.header1 {
     background-image: linear-gradient(180deg, rgb(228, 197, 158), rgb(194, 164, 127));
     border-top: 3px rgb(177, 152, 122) solid;
     border-bottom: 6px rgb(110, 95, 76) solid;
-    position: relative;
+    position: fixed;
     z-index: 10;
 
     & > nav.headernav {
@@ -131,6 +131,7 @@ section.contents {
     background-image: url(../img/top-bg.png);
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top: 6dvh;
 
     & > .hanging-link {
         display: flex;
@@ -243,10 +244,283 @@ section.contents {
         position: relative;
         width: 100%;
         bottom: -40px;
+        -webkit-mask-image: -webkit-gradient(
+        linear, 
+        0 98%, 
+        0 0, 
+        from(rgba(0, 0, 0, 0.1)), 
+        to(rgba(0, 0, 0, 1))
+    )
     }
 }
 
+section.features {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 100dvw;
+    font-family: 'Open Sans', sans-serif;
 
+    & > .assets {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url(../img/mud-bg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100dvw;
+        height: 80dvh;
+        color: white;
+
+        & > .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            & > h1 {
+                font-size: 50px;
+            }
+
+            & > p {
+                font-size: 20px;
+            }
+        }
+
+        & > .media {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5dvw;
+            transform-style: preserve-3d;
+            transform: scale(0.7) perspective(2000px);
+
+            & > .items {
+                transition: 0.5s;
+                filter: brightness(0);
+
+                & > img {
+                    object-fit: cover;
+                    height: 300px;
+                    width: 200px;
+                    transition: all 0.3s ease;
+
+                    &:active {
+                        transform: scale(2);
+                    }
+                }
+
+                &:hover {
+                    filter: brightness(1);
+                    transform: translateZ(200px);
+                }
+
+                &:hover + * {
+                    filter: brightness(0.6);
+                    transform: translateZ(150px) rotateY(30deg);
+                }
+
+                &:hover + * + * {
+                    filter: brightness(0.4);
+                    transform: translateZ(70px) rotateY(15deg);
+                }
+
+                &:hover + * + * + * {
+                    filter: brightness(0.2);
+                    transform: translateZ(30px) rotateY(7deg);
+                }
+
+                &:has(+ *:hover) {
+                    filter: brightness(0.6);
+                    transform: translateZ(150px) rotateY(-30deg);
+                }
+
+                &:has(+ * + *:hover) {
+                    filter: brightness(0.4);
+                    transform: translateZ(70px) rotateY(-15deg);
+                }
+
+                &:has(+ * + * + *:hover) {
+                    filter: brightness(0.2);
+                    transform: translateZ(30px) rotateY(-7deg);
+                }
+            }
+        }
+
+        & > .desc {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100dvw;
+
+            & > p {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 25px;
+            }
+        }
+    }
+
+    & > .scenery {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url(../img/dirt-bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100dvw;
+        height: 100dvh;
+        color: white;
+        gap: 10dvh;
+
+        & > .title h1 {
+            font-size: 40px;
+        }
+
+        & > .contents {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: row;
+            width: 100dvw;
+
+            & > .left, .right {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 2dvh;
+
+                & > img {
+                    transition: all 0.5s ease;
+                    height: 350px;
+                    width: 700px;
+                }
+
+                & > p {
+                    width: 40dvw;
+                    font-size: 20px;
+                }
+            }
+
+            & > .left img:active {
+                transition: all 0.5s ease;
+                transform: scale(1.5) translateX(250px);
+                z-index: 2;
+            }
+
+            & > .right img:active {
+                transition: all 0.5s ease;
+                transform: scale(1.5) translateX(-200px);
+                z-index: 2;
+            }
+        }
+    }
+
+    & > .todo {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        background: linear-gradient(rgba(32, 12, 12, 0.7), rgba(0, 0, 0, 0.3)), url(../img/stone-bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100dvw;
+        height: 230dvh;
+        color: white;
+
+        & > .title h1 {
+            margin-top: 5dvh;
+            font-size: 40px;
+        }
+
+        & > .content {
+            padding: 40px;
+            gap: 5dvw;
+
+            & > img {
+                height: 400px;
+                width: 700px;
+            }
+
+            & > .text {
+                display: flex;
+                flex-direction: column;
+                gap: 2dvh;
+                box-shadow: black 2px 2px 3px 3px;
+                background: inherit;
+                backdrop-filter: blur(5px);
+                height: 45dvh;
+
+                & > h1 {
+                    font-size: 100px;
+                }
+            }
+
+            & > .text *{
+                padding: 30px;
+            }
+        }
+
+        & > .left {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: row;
+        }
+
+        & > .right {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/footer-bg.png);
+
+    & > .buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        margin-top: 3dvh;
+        width: 40dvw;
+        gap: 5vw;
+
+        & > a {
+            & > button {
+                border: 3px black solid;
+                border-radius: 25px;
+                padding: 20px;
+                font-size: 25px;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.1);
+                    border: 3px white dashed;
+                    color: white;
+                }
+            }
+
+            & > .b1 {
+                background-image: linear-gradient(to bottom right, rgb(163, 255, 163), rgb(124, 248, 124), rgb(88, 206, 88), rgb(66, 172, 66));
+            }
+
+            & > .b2 {
+                background-image: linear-gradient(to bottom right, rgb(253, 156, 156), rgb(248, 96, 96), red, rgb(173, 1, 1));
+            }
+        }
+    }
+}
 
 @keyframes sway {
     0% { transform: rotate(0deg); }
