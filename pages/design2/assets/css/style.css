@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100dvh;
+    width: 100%;
+    z-index: -3;
+    overflow-x: hidden;
+    font-family: 'Fredoka One', cursive;
+}
+
+header.header1 {
+    width: 90dvw;
+    height: 50px;
+    display: flex;
+    border-radius: 8px;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: linear-gradient(180deg, rgb(228, 197, 158), rgb(194, 164, 127));
+    position: fixed;
+    z-index: 10;
+
+    & > nav.headernav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        & > .social-medias {
+            display: flex;
+            margin-left: 1dvw;
+
+            & > a {
+                & > img {
+                    filter: invert(0.5);
+                    margin-left: 6px;
+                    margin-right: 6px;
+                    height: 25px;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        filter: invert(1);
+                    }
+                }
+            }
+        }
+
+        & > .middle-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            flex-grow: 1;
+            justify-content: center;
+
+            & > div {
+                position: relative;
+                border: 3px rgb(70, 60, 47) solid;
+                background-image: linear-gradient(to bottom right, rgb(214, 169, 134), rgb(175, 130, 96), rgb(175, 130, 96), rgb(131, 95, 68));
+                padding: 7px 15px 7px 15px;
+                overflow: hidden;
+                transition: all 0.5s ease;
+
+                &:hover {
+                    background: rgb(105, 78, 57);
+                    transform: scale(1.05);
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, #fff, transparent);
+                    transition: left 0.5s;
+                }
+
+                &:hover::before {
+                    left: 100%;
+                }
+
+                & > img {
+                    cursor: pointer;
+                    height: 15px;
+                }
+
+                & > a {
+                    font-family: 'Comic Neue', sans-serif;
+                    font-weight: 400;
+                    font-size: 17.6px;
+                    color: rgb(0, 0, 0);
+                    text-decoration: none;
+                    letter-spacing: 2px;
+                }
+
+                &:hover > a {
+                    color: white;
+                }
+
+                &:hover > img {
+                    filter: invert(1);
+                }
+            }
+        }
+
+        & > .search {
+            border: 4px rgb(70, 60, 47) solid;
+            background-image: linear-gradient(to bottom right, rgb(214, 169, 134), rgb(175, 130, 96), rgb(175, 130, 96), rgb(131, 95, 68));
+            padding: 5px;
+            height: 25px;
+            margin-right: 1dvw;
+
+            &:hover {
+                background: rgb(105, 78, 57);
+            }
+        }
+    }
+}
