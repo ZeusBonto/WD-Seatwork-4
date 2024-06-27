@@ -8,7 +8,12 @@ body {
     width: 100%;
     z-index: -3;
     overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif;
     font-family: 'Fredoka One', cursive;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 header.header1 {
@@ -118,5 +123,160 @@ header.header1 {
                 background: rgb(105, 78, 57);
             }
         }
+    }
+}
+
+section.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(../img/hero-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100dvh;
+    width: 100dvw;
+
+    & .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        color: white;
+        gap: 2dvh;
+
+        & h1 {
+            font-size: 70px;
+            text-shadow: black 2px 2px;
+        }
+
+        & h2 {
+            font-style: italic;
+            font-size: 50px;
+            text-shadow: black 1px 1px;
+        }
+
+        & h3 {
+            font-size: 15px;
+            font-family: 'Open Sans', sans-serif;
+            text-shadow: black 1px 1px;
+        }
+
+        & > .buttons {
+            margin-top: 3dvh;
+            display: flex;
+            gap: 3dvw;
+        }
+
+        & button {
+            color: white;
+            background: inherit;
+            backdrop-filter: blur(3px);
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            box-shadow: black 1px 1px 1px 1px;
+            padding: 15px 25px 15px 25px;
+            text-shadow: black 1px 1px;
+            cursor: pointer;
+            transition: 0.5s;
+
+            &:hover {
+                transform: scale(1.2);
+                backdrop-filter: brightness(0.5) blur(5px);
+            }
+        }
+    }
+
+    & .logo-container {
+        position: absolute;
+        bottom: -10px;
+
+        & > img {
+            height: 200px;
+            filter: invert(1);
+        }
+    }
+
+}
+
+section.features {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url(../img/sky-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100dvw;
+    height: 300dvh;
+    color: white;
+
+    & .feature1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100dvw;
+
+        & .top {
+            margin-top: 5dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            & .t2, .t3 {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 50px;
+                font-weight: bolder;
+            }
+
+            & .t4 {
+                margin-top: 2dvh;
+            }
+        }
+
+        & .bottom {
+            margin-top: 5dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 3dvw;
+            width: 90dvw;
+
+            & .card {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 2dvh;
+                width: 300px;
+
+                & img {
+                    height: 150px;
+                    width: 300px;
+                }
+
+                & p {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    & .divider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 6dvh 0 6dvh 0;
+
+        & img {
+            filter: invert(1) blur(2px);
+        }
+    }
+
+    & .feature2 {
+        
     }
 }
